@@ -181,7 +181,7 @@ export const useRoom = (config: UIConfig): UseRoom => {
                             setRoomID(event.payload.id);
                         } else {
                             resolve();
-                            enqueueSnackbar('Unknown Event: ' + event.type, {variant: 'error'});
+                            enqueueSnackbar('未知事件：' + event.type, {variant: 'error'});
                             ws.close(1000, 'received unknown event');
                         }
                         return;
@@ -314,14 +314,14 @@ export const useRoom = (config: UIConfig): UseRoom => {
     const share = async () => {
         if (!navigator.mediaDevices) {
             enqueueSnackbar(
-                'Could not start presentation. Are you using https? (mediaDevices undefined)',
+                '无法开始演示。你是否在使用 https？（mediaDevices 未定义）',
                 {variant: 'error', persist: true}
             );
             return;
         }
         if (typeof navigator.mediaDevices.getDisplayMedia !== 'function') {
             enqueueSnackbar(
-                `Could not start presentation. Your browser likely doesn't support screensharing. (mediaDevices.getDeviceMedia ${typeof navigator.mediaDevices.getDisplayMedia})`,
+                `Could not start presentation. 你的浏览器可能不支持屏幕共享。 (mediaDevices.getDeviceMedia ${typeof navigator.mediaDevices.getDisplayMedia})`,
                 {variant: 'error', persist: true}
             );
             return;
@@ -340,7 +340,7 @@ export const useRoom = (config: UIConfig): UseRoom => {
             });
         } catch (e) {
             console.log('Could not getDisplayMedia', e);
-            enqueueSnackbar(`Could not start presentation. (getDisplayMedia error). ${e}`, {
+            enqueueSnackbar(`无法开始演示。（getDisplayMedia 错误）。 ${e}`, {
                 variant: 'error',
                 persist: true,
             });

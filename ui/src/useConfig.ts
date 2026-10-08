@@ -35,20 +35,20 @@ export const useConfig = (): UseConfig => {
         const result = await fetch(`${urlWithSlash}login`, {method: 'POST', body});
         const json = await result.json();
         if (result.status !== 200) {
-            enqueueSnackbar('Login Failed: ' + json.message, {variant: 'error'});
+            enqueueSnackbar('登录失败：' + json.message, {variant: 'error'});
         } else {
             await refetch();
-            enqueueSnackbar('Logged in!', {variant: 'success'});
+            enqueueSnackbar('已登录！', {variant: 'success'});
         }
     };
 
     const logout = async () => {
         const result = await fetch(`${urlWithSlash}logout`, {method: 'POST'});
         if (result.status !== 200) {
-            enqueueSnackbar('Logout Failed: ' + (await result.text()), {variant: 'error'});
+            enqueueSnackbar('登出失败：' + (await result.text()), {variant: 'error'});
         } else {
             await refetch();
-            enqueueSnackbar('Logged Out.', {variant: 'success'});
+            enqueueSnackbar('已登出。', {variant: 'success'});
         }
     };
 

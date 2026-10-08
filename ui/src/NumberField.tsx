@@ -26,12 +26,12 @@ export const NumberField = ({
                 setStringValue(event.target.value);
                 const i = parseInt(event.target.value, 10);
                 if (Number.isNaN(i)) {
-                    setError('Invalid number');
+                    setError('无效数字');
                     return;
                 }
 
                 if (i < min) {
-                    setError('Number must be at least ' + min);
+                    setError('数字必须至少为 ' + min);
                     return;
                 }
                 onChange(i);

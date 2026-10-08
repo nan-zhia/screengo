@@ -9,9 +9,9 @@ export const preferCodecEquals = (a: PreferredCodec, b: PreferredCodec): boolean
 export const codecName = (mimeType: string): string => {
     switch (mimeType) {
         case CodecBestQuality.mimeType:
-            return 'Preset: Best Quality';
+            return '预设：最佳质量';
         case CodecDefault.mimeType:
-            return 'Preset: Browser Default';
+            return '预设：浏览器默认';
         default:
             return mimeType;
     }
